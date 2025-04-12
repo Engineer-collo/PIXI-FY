@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Heart } from "lucide-react"; // Optional: Use Lucide or any icon library
+import { Heart } from "lucide-react"; 
 
 function LikeButton({ postId }) {
   const [likes, setLikes] = useState(0);
