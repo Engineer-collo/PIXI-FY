@@ -37,7 +37,13 @@ def home():
 def get_users():
     try:
         users = User.query.all()
-        return jsonify([user.to_dict_basic() for user in users]), 200
+        user_list = [user.to_dict_basic() for user in users]
+        
+        return jsonify({
+            "status": "success",
+            "data": user_list
+        }), 200
+
     except Exception as e:
         return jsonify({"error": str(e)}), 500
 
