@@ -81,7 +81,10 @@ def delete_user(id):
         user = User.query.get_or_404(id)
         db.session.delete(user)
         db.session.commit()
-        return jsonify({"message": "User deleted"}), 200
+        return jsonify({
+            "status": "success",
+            "message": "User deleted successfully"
+        }), 200
     except Exception as e:
         return jsonify({"error": "User not found"}), 404
 
