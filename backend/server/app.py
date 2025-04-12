@@ -37,18 +37,9 @@ def home():
 def get_users():
     try:
         users = User.query.all()
-        user_list = [user.to_dict_basic() for user in users]
-        
-        return jsonify({
-            "status": "success",
-            "data": user_list
-        }), 200
-
+        return jsonify([user.to_dict_basic() for user in users]), 200
     except Exception as e:
-        return jsonify({
-            "status": "error",
-            "message": "An internal server error occurred."
-        }), 500
+        return jsonify({"error": str(e)}), 500
 
 
 @app.route('/users/<int:id>', methods=['GET'])
@@ -81,10 +72,7 @@ def delete_user(id):
         user = User.query.get_or_404(id)
         db.session.delete(user)
         db.session.commit()
-        return jsonify({
-            "status": "success",
-            "message": "User deleted successfully"
-        }), 200
+        return jsonify({"message": "User deleted"}), 200
     except Exception as e:
         return jsonify({"error": "User not found"}), 404
 
