@@ -13,10 +13,6 @@ flask-sqlalchemy = "*"
 flask-bcrypt = "*"
 sqlalchemy-serializer = "*"
 flask-migrate = "*"
-<<<<<<< HEAD:Pipfile
-
-=======
->>>>>>> 2eaa56644215f4fd2b81d7f443a27f5d43da1cf5:backend/Pipfile
 bcrypt = "*"
 flask-cors = "*"
 
